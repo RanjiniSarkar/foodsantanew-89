@@ -2,8 +2,9 @@ import React ,{Component} from 'react';
 import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import{Card,Header,Icon} from 'react-native-elements';
 import firebase from 'firebase';
-
+import {RFValue} from 'react-native-responsive-fontsize'
 import db from '../config.js';
+
 
 export default class RecieverDetailsScreen extends Component{
   constructor(props){
@@ -93,38 +94,44 @@ export default class RecieverDetailsScreen extends Component{
           <View style={{flex:0.1}}>
             <Header
               leftComponent ={<Icon name='arrow-left' type='feather' color='#696969'  onPress={() => this.props.navigation.goBack()}/>}
-              centerComponent={{ text:"Donate Food", style: { color: '#90A5A9', fontSize:20,fontWeight:"bold", } }}
+              centerComponent={{ text:"Donate Food", style: { color: '#90A5A9', fontSize:RFValue(20),fontWeight:"bold", } }}
               backgroundColor = "#eaf8fe"
             />
           </View>
-          <View style={{flex:0.3}}>
-            <Card
-                title={"Food Information"}
-                titleStyle= {{fontSize : 20}}
-              >
-              <Card >
-                <Text style={{fontWeight:'bold'}}>Name : {this.state.foodName}</Text>
-              </Card>
-              <Card>
-                <Text style={{fontWeight:'bold'}}>Health Issues : {this.state.health_issues}</Text>
-              </Card>
-            </Card>
+          <View style={{flex:0.3,
+  
+          paddingTop:RFValue(30),
+          paddingBottom:RFValue(10)
+          }}>
+            <Text style= {{fontSize : 40}}>
+                Food Information
+               
+              </Text>
+              
+                <Text style={{fontWeight:'bold',fontSize:RFValue(25),textAlign:"center"}}>
+                  Name : {this.state.foodName}
+                  </Text>
+              
+        
+                <Text style={{fontWeight:'bold',fontSize:RFValue(15),textAlign:"center",marginTop:RFValue(15)}}>
+                  Health Issues : {this.state.health_issues}</Text>
+            
+        
           </View>
-          <View style={{flex:0.3}}>
-            <Card
-              title={"Reciever Information"}
-              titleStyle= {{fontSize : 20}}
-              >
-              <Card>
-                <Text style={{fontWeight:'bold'}}>Name: {this.state.recieverName}</Text>
-              </Card>
-              <Card>
-                <Text style={{fontWeight:'bold'}}>Contact: {this.state.recieverContact}</Text>
-              </Card>
-              <Card>
-                <Text style={{fontWeight:'bold'}}>Address: {this.state.recieverAddress}</Text>
-              </Card>
-            </Card>
+          <View style={{flex:0.3,padding:RFValue(20)}}>
+            <View style = {{flex:0.7}}>
+            <Text
+            style = {{fontWeight:"500",fontSize:RFValue(30)}}> Reciever Information</Text>
+              
+                <Text style={{fontWeight:'bold',fontSize:RFValue(20),marginTop:RFValue(30)}}>Name: {this.state.recieverName}</Text>
+            
+            
+                <Text style={{fontWeight:'bold',fontSize:RFValue(20),marginTop:RFValue(30)}}>Contact: {this.state.recieverContact}</Text>
+              
+            
+                <Text style={{fontWeight:'bold',fontSize:RFValue(20),marginTop:RFValue(30)}}>Address: {this.state.recieverAddress}</Text>
+            
+            </View>
           </View>
           <View style = {styles.buttonContainer}>
             {
@@ -153,6 +160,7 @@ export default class RecieverDetailsScreen extends Component{
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    backgroundColor:"#0099ff"
   },
   buttonContainer : {
     flex:0.3,

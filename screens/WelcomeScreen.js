@@ -3,6 +3,8 @@ import React, {Component} from 'react';
  import db from '../config';
  import firebase from 'firebase';
  import FoodAnimation from '../components/Food'
+ import {Icon,Input} from 'react-native-elements'
+ import {RFValue} from 'react-native-responsive-fontsize'
  
 
  export default class WelcomeScreen extends React.Component{
@@ -77,7 +79,19 @@ import React, {Component} from 'react';
            <ScrollView style = {{width:'100%'}}>
              <KeyboardAvoidingView style = {styles.KeyboardAvoidingView}>
                <Text style = {styles.modalTitle}>REGISTRATION</Text>
-               <TextInput
+               <Icon
+               type = {"materialicon"}
+               name = {"cancel"}
+               size = {RFValue(40)}
+               color = {"red"}
+               onPress = {()=>{
+                 this.setState({
+                   isModalVisible:false
+                 })
+               }}
+               />
+               <View>
+               <Input
                style = {styles.formTextInput}
                placeholder={'First Name'}
                maxLength={8}
@@ -87,7 +101,7 @@ import React, {Component} from 'react';
                  })
                }}
             />
-            <TextInput
+            <Input
           style = {styles.formTextInput}
           placeholder={'Last Name'}
           maxLength={8}
@@ -97,7 +111,7 @@ import React, {Component} from 'react';
             })
           }}  
           />
-          <TextInput
+          <Input
           style = {styles.formTextInput}
           placeholder={'Contact'}
           maxLength={10}
@@ -108,7 +122,7 @@ import React, {Component} from 'react';
             })
           }}  
           />
-          <TextInput
+          <Input
           style = {styles.formTextInput}
           placeholder={'Address'}
           multiline = {true}
@@ -118,7 +132,7 @@ import React, {Component} from 'react';
             })
           }}  
           />
-          <TextInput
+          <Input
           style = {styles.formTextInput}
           placeholder={'Email'}
           keyboardType={'email-address'}
@@ -128,7 +142,7 @@ import React, {Component} from 'react';
             })
           }}  
           />
-          <TextInput
+          <Input
           style = {styles.formTextInput}
           placeholder={'Password'}
           secureTextEntry={true}
@@ -138,7 +152,7 @@ import React, {Component} from 'react';
             })
           }}  
           />
-          <TextInput
+          <Input
           style = {styles.formTextInput}
           placeholder={'Confirm Password'}
           secureTextEntry={true}
@@ -148,7 +162,7 @@ import React, {Component} from 'react';
             })
           }}  
           />
-           <TextInput
+           <Input
             style={styles.formTextInput}
             placeholder ={"Country currency code"}
             maxLength ={8}
@@ -158,6 +172,7 @@ import React, {Component} from 'react';
               })
             }}
           />
+          </View>
           <View style={styles.modalBackButton}>
           <TouchableOpacity
             style={styles.registerButton}

@@ -11,6 +11,8 @@ import {
 import db from '../config';
 import firebase from 'firebase';
 import MyHeader from '../components/MyHeader'
+import {RFValue} from 'react-native-responsive-fontsize'
+import {Icon} from 'react-native-elements'
 
 export default class FoodRequestScreen extends Component{
   constructor(){
@@ -211,12 +213,32 @@ updateFoodRequestStatus=()=>{
         <View style = {{flex:1,justifyContent:'center'}}>
           <View style={{borderColor:"orange",borderWidth:2,justifyContent:'center',alignItems:'center',padding:10,margin:10}}>
           <Text>Food Name</Text>
-          <Text>{this.state.requestedFoodName}</Text>
+          <Text
+          style = {{
+            fontSize:RFValue(20),
+            fontWeight:"bold",
+            textAlign:"center",
+            padding:RFValue(10)
+          }}
+          >{this.state.requestedFoodName}</Text>
           </View>
           <View style={{borderColor:"orange",borderWidth:2,justifyContent:'center',alignItems:'center',padding:10,margin:10}}>
-          <Text> Food Status </Text>
+          <Text
+           style = {{
+            fontSize:RFValue(25),
+            fontWeight:"bold",
+            textAlign:"flex-start",
+            marginTop:RFValue(10)
+          }}
+          > Food Status </Text>
 
-          <Text>{this.state.foodStatus}</Text>
+          <Text
+           style = {{
+            fontSize:RFValue(18),
+            fontWeight:"bold",
+            marginTop:RFValue(30)
+          }}
+          >{this.state.foodStatus}</Text>
           </View>
           
           <View style={{borderColor:"orange",borderWidth:2,justifyContent:'center',alignItems:'center',padding:10,margin:10}}>

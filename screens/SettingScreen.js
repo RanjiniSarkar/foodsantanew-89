@@ -3,6 +3,7 @@ import {View,Text, KeyboardAvoidingView,TextInput,StyleSheet,ScrollView,Touchabl
 import MyHeader from '../components/MyHeader'
 import db from '../config'
 import firebase from 'firebase'
+import {RFValue} from 'react-native-responsive-fontsize'
 
 export default class SettingScreen extends Component{
   constructor(){
@@ -65,6 +66,10 @@ componentDidMount(){
                   style={styles.formTextInput}
                   placeholder ={"First Name"}
                   maxLength ={8}
+                  containerStyle={{
+                    marginBottom:RFValue(25),
+                    marginTop:RFValue(0)
+                  }}
                   onChangeText={(text)=>{
                     this.setState({
                       firstName: text
@@ -76,6 +81,10 @@ componentDidMount(){
                   style={styles.formTextInput}
                   placeholder ={"Last Name"}
                   maxLength ={8}
+                  containerStyle={{
+                    marginBottom:RFValue(25),
+                    
+                  }}
                   onChangeText={(text)=>{
                     this.setState({
                       lastName: text
@@ -87,6 +96,10 @@ componentDidMount(){
                   style={styles.formTextInput}
                   placeholder ={"Contact"}
                   maxLength ={10}
+                  containerStyle={{
+                    marginBottom:RFValue(25),
+                  
+                  }}
                   keyboardType={'numeric'}
                   onChangeText={(text)=>{
                     this.setState({
@@ -99,6 +112,10 @@ componentDidMount(){
                   style={styles.formTextInput}
                   placeholder ={"Address"}
                   multiline = {true}
+                  containerStyle={{
+                    marginBottom:RFValue(25),
+                    
+                  }}
                   onChangeText={(text)=>{
                     this.setState({
                       address: text
@@ -110,6 +127,10 @@ componentDidMount(){
                   style={styles.formTextInput}
                   placeholder ={"Email"}
                   keyboardType ={'email-address'}
+                  containerStyle={{
+                    marginBottom:RFValue(25),
+                  
+                  }}
                   onChangeText={(text)=>{
                     this.setState({
                       emailId: text

@@ -14,6 +14,8 @@ import * as Permissions from "expo-permissions";
 import firebase from "firebase";
 import db from "../config";
 import axios from "axios";
+import {RFValue} from 'react-native-responsive-fontsize'
+import {Icon } from 'react-native-elements'
 
 export default class CustomSideBarMenu extends Component {
   state = {
@@ -102,7 +104,7 @@ export default class CustomSideBarMenu extends Component {
             source={{
               uri: this.state.image,
             }}
-            size="medium"
+            size={"xlarge"}
             onPress={() => this.selectPicture()}
             containerStyle={styles.imageContainer}
             showEditButton
@@ -124,7 +126,20 @@ export default class CustomSideBarMenu extends Component {
               firebase.auth().signOut();
             }}
           >
-            <Text>Log Out</Text>
+            <Icon
+            name="logout"
+            type = "antdesign"
+            size={RFValue(20)}
+            iconStyle={{paddingLeft:RFValue(10)}}
+            />
+            <Text
+            style = {{
+              fontSize:RFValue(15),
+              fontWeight:"bold",
+              marginLeft:RFValue(30)
+            }}
+            
+            >Log Out</Text>
           </TouchableOpacity>
         </View>
       </View>

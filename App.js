@@ -10,6 +10,7 @@ import CustomSideBarMenu from './components/CustomSideBarMenu';
 import MyFoodDonationScreen from './screens/MyFoodDonationScreen';
 import MyRecipeDonationScreen from './screens/MyRecipeDonationScreen'
 import NotificationScreen from './screens/NotificationScreen';
+import {Icon} from 'react-native-elements'
 
 
 
@@ -27,19 +28,38 @@ export default function App (){
   }
   export const AppDrawerNavigator = createDrawerNavigator({
     Home:{
-        screen:AppTabNavigator
+        screen:AppTabNavigator,
+        navigationOptions:{
+          drawerIcon:<Icon name = "home" type = "fontawesome5"/>
+        }
     },
     Settings:{
-      screen:SettingScreen
+      screen:SettingScreen,
+      navigationOptions:{
+        drawerIcon:<Icon name = "settings" type = "font-awesome"/>,
+        drawerLabel: "Settings"
+      }
     },
     MyFoodDonations:{
-      screen:MyFoodDonationScreen
+      screen:MyFoodDonationScreen,
+      navigationOptions:{
+        drawerIcon:<Icon name = "gift" type = "font-awesome"/>,
+        drawerLabel:"My Food Donations"
+
+      }
     },
     MyRecipeDonations:{
-      screen: MyRecipeDonationScreen
+      screen: MyRecipeDonationScreen,
+      navigationOptions:{
+        drawerIcon:<Icon name = "gift" type = "font-awesome"/>,
+        drawerLabel:"My Recipe Donations"      }
     },
     Notifications:{
-      screen:NotificationScreen
+      screen:NotificationScreen,
+      navigationOptions:{
+        drawerIcon:<Icon name = "bell" type = "font-awesome"/>,
+        drawerLabel:"Notifications"
+      }
     }
 },
 {
